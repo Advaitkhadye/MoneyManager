@@ -52,12 +52,12 @@ export default function LoginPage() {
         <div className="min-h-screen bg-[#1a1b1e] text-white flex flex-col items-center justify-center p-4">
             <div className="w-full max-w-md space-y-8">
                 {/* Logo */}
-                <div className="flex justify-center items-center gap-2 mb-8">
-                    <div className="p-2 bg-blue-600 rounded-lg shrink-0">
-                        <LayoutDashboard className="w-6 h-6 text-white" />
+                <Link href="/" className="flex justify-center items-center gap-2 mb-8 hover:opacity-80 transition-opacity">
+                    <div className="w-10 h-10 relative rounded-lg overflow-hidden">
+                        <img src="/logo.png" alt="Logo" className="w-full h-full object-cover" />
                     </div>
                     <span className="font-bold text-2xl tracking-tight">FinanceManager</span>
-                </div>
+                </Link>
 
                 <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-8 rounded-2xl shadow-xl">
                     <h2 className="text-2xl font-bold mb-6 text-center">

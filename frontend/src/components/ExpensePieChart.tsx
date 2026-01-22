@@ -42,9 +42,9 @@ export default function ExpensePieChart({ transactions }: { transactions: Transa
     const total = data.reduce((sum, item) => sum + item.value, 0);
 
     return (
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full flex flex-col">
-            <h2 className="text-lg font-semibold mb-4 text-gray-800">Expenses by Category</h2>
-            <div className="flex-1 min-h-[250px]">
+        <div className="bg-white/5 p-6 rounded-xl shadow-sm border border-white/10 h-full flex flex-col">
+            <h2 className="text-lg font-semibold mb-4 text-white">Expenses by Category</h2>
+            <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie
@@ -71,15 +71,18 @@ export default function ExpensePieChart({ transactions }: { transactions: Transa
                             labelLine={true}
                         >
                             {data.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} stroke="rgba(255,255,255,0.1)" />
                             ))}
                         </Pie>
-                        <Tooltip formatter={(value: number) => `$${value.toFixed(2)}`} />
+                        <Tooltip
+                            formatter={(value: number) => `₹${value.toFixed(2)}`}
+                            contentStyle={{ backgroundColor: '#1a1b1e', borderColor: '#374151', color: '#fff' }}
+                        />
                         <Legend
                             formatter={(value, entry: any) => {
                                 const percent = ((entry.payload.value / total) * 100).toFixed(0);
                                 const safeValue = (value || '').toString();
-                                return <span className="text-xs md:text-sm text-gray-600 ml-1">{safeValue.charAt(0).toUpperCase() + safeValue.slice(1)} ({percent}%)</span>;
+                                return <span className="text-xs md:text-sm text-gray-400 ml-1">{safeValue.charAt(0).toUpperCase() + safeValue.slice(1)} ({percent}%)</span>;
                             }}
                         />
                     </PieChart>

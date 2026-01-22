@@ -1,46 +1,67 @@
 # Finance Manager
 
-This project consists of a FastAPI backend and a Next.js frontend.
+**Master your money with smart, personalized insights.**
 
-## 🚀 Quick Start (Windows)
+Finance Manager is a modern wealth tracking application designed to help you organize your finances effortlessly. Beyond just logging expenses, it uses smart AI to analyze your spending habits and offer professional financial advice in real-time.
 
-Simply double-click the **`run_app.bat`** file in this directory. 
-It will open two command windows: one for the backend and one for the frontend.
+## ✨ Key Features
 
-## 🛠️ Manual Setup
+*   **Smart Dashboard**: specific, visual breakdown of your expenses with interactive charts.
+*   **AI Financial Advisor**: Chat with our smart assistant to get instant answers about your spending trends or tips to save money.
+*   **Secure & Private**: Your data is protected with enterprise-grade authentication (Supabase).
+*   **Cross-Platform**: Fully responsive design that looks great on your laptop, tablet, or phone.
+*   **Real-Time Data**: Instant updates and seamless synchronization across devices.
 
-If you prefer to run the servers manually or need to debug:
+## 🛠️ Technology Stack
 
-### 1. Backend
+We built this using robust, modern technologies to ensure speed and reliability:
 
-Navigate to the backend directory and set up the Python environment.
+*   **Frontend**: [Next.js](https://nextjs.org/) (React) with Tailwind CSS for a beautiful, fast user interface.
+*   **Backend**: [FastAPI](https://fastapi.tiangolo.com/) (Python) for high-performance data processing.
+*   **Database**: [Supabase](https://supabase.com/) (PostgreSQL) for secure and scalable data storage.
+*   **AI Engine**: Google Gemini for intelligent financial context and advice.
 
-```bash
-cd backend
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
+## 🚀 Getting Started
 
-**Run the Server:**
-```bash
-python -m uvicorn main:app --reload --port 8000
-```
+### Prerequisites
+*   Node.js installed on your machine.
+*   Python 3.9+ installed.
 
-> Ensure you have a `.env` file in the `backend` directory with your API keys (e.g., `GEMINI_API_KEY`).
+### Quick Run (Windows)
+Simply double-click the `run_app.bat` file in the main folder!
 
-### 2. Frontend
+### Manual Setup
 
-Navigate to the frontend directory.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/FinanceManager.git
+    cd FinanceManager
+    ```
 
-```bash
-cd frontend
-npm install
-```
+2.  **Setup Backend:**
+    ```bash
+    cd backend
+    python -m venv venv
+    .\venv\Scripts\activate
+    pip install -r requirements.txt
+    uvicorn main:app --reload
+    ```
 
-**Run the Development Server:**
-```bash
-npm run dev
-```
+3.  **Setup Frontend:**
+    ```bash
+    cd frontend
+    npm install
+    npm run dev
+    ```
 
-The frontend will be available at [http://localhost:3000](http://localhost:3000).
+4.  **Visit App:** Open [http://localhost:3000](http://localhost:3000).
+
+## ☁️ Deployment
+
+This project is configured for seamless deployment:
+*   **Frontend**: Deployed on [Vercel](https://vercel.com).
+*   **Backend**: Deployed on [Render](https://render.com) or Vercel.
+
+---
+
+*Built with ❤️ for better financial health.*

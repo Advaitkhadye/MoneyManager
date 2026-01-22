@@ -3,6 +3,8 @@ import { authenticatedFetch } from "../lib/api";
 
 import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Sparkles } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function ChatInterface() {
     const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -117,7 +119,26 @@ export default function ChatInterface() {
                                     ? "bg-blue-600 text-white rounded-tr-none"
                                     : "bg-white border border-gray-100 text-gray-700 shadow-sm rounded-tl-none"
                                     }`}>
-                                    {msg.content}
+
+                                    {msg.role === "assistant" ? (
+                                        <div className="prose prose-sm prose-invert max-w-none prose-p:leading-relaxed prose-pre:bg-gray-800 prose-pre:p-2 prose-pre:rounded-lg">
+                                            <ReactMarkdown
+                                                remarkPlugins={[remarkGfm]}
+                                                components={{
+                                                    ul: ({ node, ...props }) => <ul className="list-disc list-outside ml-4 mb-2" {...props} />,
+                                                    ol: ({ node, ...props }) => <ol className="list-decimal list-outside ml-4 mb-2" {...props} />,
+                                                    li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+                                                    p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                                                    strong: ({ node, ...props }) => <strong className="font-semibold text-gray-900" {...props} />,
+                                                    a: ({ node, ...props }) => <a className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer" {...props} />,
+                                                }}
+                                            >
+                                                {msg.content}
+                                            </ReactMarkdown>
+                                        </div>
+                                    ) : (
+                                        msg.content
+                                    )}
                                 </div>
                             </div>
                         ))}
