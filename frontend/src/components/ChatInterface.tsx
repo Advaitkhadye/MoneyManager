@@ -131,6 +131,9 @@ export default function ChatInterface() {
                                                     p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
                                                     strong: ({ node, ...props }) => <strong className="font-semibold text-gray-900" {...props} />,
                                                     a: ({ node, ...props }) => <a className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer" {...props} />,
+                                                    table: ({ node, ...props }) => <div className="overflow-x-auto my-2 border rounded-lg"><table className="w-full text-left border-collapse" {...props} /></div>,
+                                                    th: ({ node, ...props }) => <th className="bg-gray-100 p-2 border-b font-medium text-xs whitespace-nowrap" {...props} />,
+                                                    td: ({ node, ...props }) => <td className="p-2 border-b text-xs whitespace-nowrap" {...props} />,
                                                 }}
                                             >
                                                 {msg.content}

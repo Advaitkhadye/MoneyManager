@@ -136,7 +136,7 @@ def chat(request: ChatRequest, db: Session = Depends(get_db), user_id: str = Dep
         transaction_summary = "User's Recent Transactions:\n"
         if recent_transactions:
             for t in recent_transactions:
-                transaction_summary += f"- {t.date}: {t.description} ({t.category}) - ${t.amount}\n"
+                transaction_summary += f"- {t.date}: {t.description} ({t.category}) - ₹{t.amount}\n"
         else:
             transaction_summary += "No recent transactions found.\n"
             
@@ -151,7 +151,9 @@ def chat(request: ChatRequest, db: Session = Depends(get_db), user_id: str = Dep
         Answer the user's question based on the transaction data provided above.
         - **IMPORTANT**: Use **Markdown** formatting (bolding, lists, headings) to make the answer easy to read.
         - Be conversational, helpful, and professional (like a world-class AI assistant).
-        - Structure your answer clearly. avoid just a simple list unless requested.
+        - **ALWAYS** use Indian Rupees (₹) for all currency values.
+        - **DO NOT** use Markdown Tables (they break the mobile layout). Use bulleted lists instead.
+        - Structure your answer clearly using headings and lists.
         - Keep response to the point but comprehensive enough to be helpful.
         """
 
