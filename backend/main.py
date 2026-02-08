@@ -149,10 +149,10 @@ def chat(request: ChatRequest, db: Session = Depends(get_db), user_id: str = Dep
         User Question: {request.message}
         
         Answer the user's question based on the transaction data provided above.
-        - **IMPORTANT**: Provide your answer in a **bulleted point-by-point format**.
-        - If they ask about spending, calculate totals from the provided list.
-        - Be concise, friendly, and professional.
-        - Keep response to 3-4 sentences max equivalent (but in bullets).
+        - **IMPORTANT**: Use **Markdown** formatting (bolding, lists, headings) to make the answer easy to read.
+        - Be conversational, helpful, and professional (like a world-class AI assistant).
+        - Structure your answer clearly. avoid just a simple list unless requested.
+        - Keep response to the point but comprehensive enough to be helpful.
         """
 
         retries = 3
